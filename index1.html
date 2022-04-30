@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simulador de Plazos Fijos">
+    <meta name="author" content="Maximiliano Rodriguez">
+    <title>Simulador de Plazo Fijo - Maximiliano Rodriguez</title>
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">   
+</head>
+<body>  
+<header id="header" class="santander">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="header-content-inner">
+          <a class="logo" alt="Logo Banco Nación" href="/" title="Banco Nación">
+          <img src="https://www.personas.santanderrio.com.ar/hb/images_login/logo-header.png">
+          </a>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</header>
+<main>
+  <div class="bannerhome">
+<h1>Bienvenido al simulador de Plazos Fijos</h1>
+</div>
+<section id="panelSimulador" class="clear">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7" id="content-form">
+        <div class="header-content-inner">
+          <h1>Simulador de Plazo Fijo</h1>
+        </div>
+        <form id="simulador">
+          <div class="form-group">
+            <label for="capitalaIvertir">Capital a Invertir:</label>
+            <input type="deposito" class="form-control" id="capital" placeholder="" />
+          </div>
+          <div class="form-group">
+            <label for="plazo">Plazo (en días):</label>
+            <input type="number" class="form-control" id="duracion" placeholder="(Mínimo 30 días - Máximo 365 días)"/>
+          </div>
+          <div class="form-group">
+            <button type="button" id="calcular" value="Borrar" class="btn santander" >Calcular</button>
+          </div>
+      </form>
+      </div>
+      <div class="col-sm-5">
+        <div class="list">
+          <h2 class="title">Ventajas</h2>
+            <div class="container-list">
+              <ul>
+                <li>Alternativas flexibles en pesos y en dólares.<br></li>
+                <li>Elegís el monto y el plazo que te resulte más conveniente.<br></li>
+                <li>Podrás invertir tu <strong>capital, </strong>por un plazo determinado en días.<br></li>
+                
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+<section id="data" class="clear"> 
+  <div class="container">
+    <h2> Resultado:</h2>
+    <span id="clac_error"></span>
+  <table class="table" >
+    <thead>
+        <tr>
+          <th>Canal</th>
+          <th>Sucursal</th>
+          <th>Electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Plazo</td>
+            <td class="dest">No Aplica</td>
+            <td class="dest" id="dias"></td>
+        </tr>
+        <tr>
+            <td>Capital</td>
+            <td class="dest">No Aplica</td>
+            <td class="dest" id="monto"></td>
+        </tr>
+        <tr>
+            <td>Intereses ganados</td>
+            <td class="dest">No Aplica</td>
+            <td class="dest" id="calc_interes"></td>
+        </tr>
+        <tr>
+            <td>Monto total</td>
+            <td class="dest">No Aplica</td>
+            <td class="dest" id="calc_result"></td>
+        </tr>
+        <tr>
+            <td>TNA</td>
+            <td class="dest">No Aplica</td>
+            <td class="dest">23%</td>
+        </tr>
+    </tbody>
+</table>
+</section>
+</main>
+<footer>
+         <div class="container">
+            <p>&copy; 2017 . Maximiliano Rodriguez.</p>
+            <ul class="list-inline">
+                <li>
+                    <a href="#">Mail</a>
+                </li>
+                <li>
+                    <a href="#">Github</a>
+                </li>
+                <li>
+                    <a href="#">Porfolio</a>
+                </li>
+            </ul>
+        </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+<script> 
+$('#calcular').click(function () {
+    var deposito = $('#capital').val();
+    var tna = 23 / 100;
+    var duracion = $('#duracion').val();
+
+   
+    if(deposito!='' && tna!='' && duracion>='30'){
+    var cf = deposito * (1 + tna * (duracion / 365));
+var interes =  cf - deposito;
+          if (cf >= 1000) {
+          $('#calc_result').text('$' + cf.toFixed(2));
+          $('#calc_interes').text('$' + interes.toFixed(2));
+          $('#tna').text(tna.toFixed(2)+"%");
+          $('#dias').text( duracion + ' dias');
+          $('#monto').text('$' + deposito);
+          $('#clac_error').text('');
+          $('#duracion').removeClass('danger');
+          $('#capital').removeClass('danger');
+      } 
+      else {
+        $('#capital').addClass('danger');
+        $('#clac_error').text('Ingrese valor mayor a $1000.');
+        
+      }
+      
+    }else{
+        $('#clac_error').text('Ingrese un valor de días mayor a 30');
+        $('#duracion').addClass('danger');
+    }
+
+});
+</script>
+
+
+
+</body>
+</html>
