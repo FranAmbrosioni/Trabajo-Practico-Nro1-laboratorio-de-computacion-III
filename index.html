@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Simulador de plazos fijos</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js"></script>
+    
 </head>
 <body>
+    <main class="main">
+    <div class="formulario">
+    <form action="" id="FormularioPf" >
     <h1>Simulador de Plazo Fijo</h1>
     <form action="" id="FormularioPf">
     <label>Nombre y Apellido:</label><input type="text" id="txtNombre"><br>
-    <label>Monto a invertir:</label><input type="text" id="txtMonto"><br>
-    <label>Cantidad de días:</label><input type="number" id="txtCantDias"><br>
+    <label>Monto a invertir:</label><input type="text" id="txtMonto" class="txtMonto"><br>
+    <label>Cantidad de días:</label><input type="number" id="txtCantDias" class="txtCantDias"><br>
     <label> Reinvertir </label><input type="checkbox" id="chkReinvertir"><br>   
     <button id="btnCalcular">Calcular</button>
+</main>
+</div>
 </form>
 </body>
 </html>
