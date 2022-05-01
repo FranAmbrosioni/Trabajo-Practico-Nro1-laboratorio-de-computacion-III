@@ -11,17 +11,83 @@
 </head>
 <body>
     <main class="main">
-    <div class="formulario">
-    <form action="" id="FormularioPf" >
-    <h1>Simulador de Plazo Fijo</h1>
+        <div class="formulario">
+            <form action="" id="FormularioPf" >
+            <h1>Simulador de Plazo Fijo</h1>
     <form action="" id="FormularioPf">
     <label>Nombre y Apellido:</label><input type="text" id="txtNombre"><br>
     <label>Monto a invertir:</label><input type="text" id="txtMonto" class="txtMonto"><br>
-    <label>Cantidad de días:</label><input type="number" id="txtCantDias" class="txtCantDias"><br>
+    <label>Cantidad de días:</label><input type="text" id="txtCantDias" class="txtCantDias"><br>
     <label> Reinvertir </label><input type="checkbox" id="chkReinvertir"><br>   
-    <button id="btnCalcular">Calcular</button>
-</main>
-</div>
+    <button id="btnCalcular">Calcular</button><br><br>
+        </div>
+    </main>
+    <div class="tablaCalculo">
+        <table id="tbCalculo" class="tablaCalculo--Calculos">
+            
+        <tr>
+            <td><strong>Cantidad de dias</strong></td>
+            <td><strong>Procentaje</strong></td>
+        </tr>
+
+        <tr>
+            <td>30-60</td>
+            <td>40</td>
+        
+        </tr>
+        <tr>
+            <td>61-120</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <td>121-360</td>
+            <td>50</td>
+        </tr>
+        <tr>   
+            <td>360-</td>
+            <td>65</td>
+        </tr>
+    
+        </table>
+    
+    
+    </div>
+    <div class="montoFinal">
+
+        <table id="tbMonto" class="tablamontos--Calculos">
+            
+            <tr>
+                <td><strong>Periodo</strong></td>
+                <td><strong>Monto Inicial</strong></td>
+                <td><strong>Monto Final</strong></td>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td>monto Inicial 1</td>
+                <td>monto Final 1</td>
+            
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>monto Inicial 2</td>
+                <td>monto Final 2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>monto Inicial 3</td>
+                <td>monto Final 3</td>
+            </tr>
+            <tr>   
+                <td>4</td>
+                <td>monto Inicial 4</td>
+                <td>monto Final 4</td>
+            </tr>
+        
+            </table>
+    </div>
+
+
 </form>
 </body>
 </html>
