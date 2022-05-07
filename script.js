@@ -13,6 +13,7 @@ function clickbtnCalcular()
     let Validarvariable;
     let txtNombre = document.getElementById("txtNombre");
     let Nombre = txtNombre.value;
+    
 
     let txtMonto = document.getElementById("txtMonto");
     let Monto = txtMonto.value;
@@ -23,7 +24,9 @@ function clickbtnCalcular()
     /*---------------------NOMBRE*/
     if(Nombre == "")
     {
-        alert(" Vacio");
+       var Texto="Ingrese un Nombre";
+       changeIt(Texto);
+       debugger;
     }
     else
     {
@@ -34,39 +37,54 @@ function clickbtnCalcular()
     /*-----------------------monto*/
     if(isNaN(Monto))
     {
-        alert("NaN");
+        var Texto ="NaN";
+        changeIt(Texto);
+        debugger;
     }
     else
     {
-        alert(Monto);
-        if(Monto>=1000)
+        
+        if(Monto<1000)
         {
-            alert("monto correcto");
+            var Texto="El capital debe ser mayor o igual que $1000";
+            changeIt(Texto);
+            debugger;
         }
         else
         {
-            alert("El capital debe ser mayor o igual que $1000");
+            alert("Correcto");
         }
     }
     /*-----------------------CANTDIAS*/
     if(isNaN(CantDias))
     {
-    alert("NaN");
+        var Texto="Nan";
+        changeIt(Texto);
     }
     else
     {
-    if(CantDias>=30 )
+    if(CantDias<30 )
     {
+        var Texto="La cantidad de dias debe ser mayor o igual que 30 y menor o igual que 360";
+       changeIt(Texto);
+       
+    }
+    else
+    {
+        
         alert("Dias correctos");
         Porcentaje();
-    }
-    else
-    {
-        alert("La cantidad de dias debe ser mayor o igual que 30 y menor o igual que 360");
+       
     }
     }
 
     
+}
+
+function changeIt(Texto) {
+    let CambioTexto = Texto;
+  document.getElementById('test').innerHTML=CambioTexto;
+  
 }
 
 function Porcentaje()
