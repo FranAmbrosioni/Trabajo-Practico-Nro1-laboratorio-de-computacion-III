@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Simulador de plazos fijos</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
-    <script src="script.js"></script>
-    
+    <script src="script.js" defer></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/utilities.js"></script>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hurricane&family=Lobster&family=Palette+Mosaic&family=Quicksand:wght@700&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
+    <h1 id="TituloPrincipal">Simulador de Plazo Fijo</h1>
     <main class="main">
         <div class="formulario">
-            <form action="" id="FormularioPf" >
-            <h1>Simulador de Plazo Fijo</h1>
-    <form action="" id="FormularioPf">
-    <label>Nombre y Apellido:</label><input type="text" id="txtNombre" placeholder="nombre y apellido"><br>
-    <div id="test"><b></b></div><br>
-    <label>Monto a invertir:</label><input type="text" id="txtMonto" class="txtMonto" placeholder="minimo $1000"><br>
-    <label>Cantidad de días:</label><input type="text" id="txtCantDias" class="txtCantDias" placeholder="minimo 30 dias"><br>
-    <label> Reinvertir </label><input type="checkbox" id="chkReinvertir"><br>   
-    <button id="btnCalcular">Calcular</button><br><br>
+            <br>
+            <form id="FormularioPf" onsubmit="return false">
+                <label>Nombre y Apellido:</label><input type="text" id="txtNombre" placeholder="nombre y apellido"><br>
+                <div id="txtErrorNombre" style="color: red"><b></b></div><br>
+                <label>Monto a invertir:</label><input type="text" id="txtMonto" class="txtMonto"
+                    placeholder="minimo $1000"><br>
+                <div id="txtErrorMonto" style="color: red"><b></b></div><br>
+                <label>Cantidad de días:</label><input type="text" id="txtCantDias" class="txtCantDias"
+                    placeholder="minimo 30 dias"><br>
+                <div id="txtErrorDias" style="color: red"><b></b></div><br>
+                <label> Reinvertir </label><input type="checkbox" id="chkReinvertir"><br><br>
+                <button id="btnCalcular" onclick=clickbtnCalcular()>Calcular</button><br><br>
+            </form>
         </div>
     </main>
-    <div class="tablaCalculo">
-        <table id="tbCalculo" class="tablaCalculo--Calculos">
-            
+    
+    <div id="PrimerCalculo"> </div>
+    <section id="SectionTablas">
+        <div id="Porcentaje">
+    <table >
+        <thead>
+
         <tr>
             <td><strong>Cantidad de dias</strong></td>
             <td><strong>Procentaje</strong></td>
         </tr>
-
+    </thead>
         <tr>
             <td>30-60</td>
             <td>40</td>
-        
+
         </tr>
         <tr>
             <td>61-120</td>
@@ -44,26 +63,30 @@
             <td>121-360</td>
             <td>50</td>
         </tr>
-        <tr>   
+        <tr>
             <td>360-</td>
             <td>65</td>
         </tr>
-    
-        </table>
-    
-    
-    </div>
-    <div class="montoFinal">
 
-        <table id="tbMonto" class="tablamontos--Calculos">
-            
+    </table>
+    </div>
+
+
+    </table>
+
+    <div id="montoFinal">
+
+        <table id="tbMonto" style="visibility: hidden;" >
+            <thead>
             <tr>
-                <td><strong>Periodo</strong></td>
-                <td><strong>Monto Inicial</strong></td>
-                <td><strong>Monto Final</strong></td>
+                <th><strong>Periodo</strong></th>
+                <!--<td d="montoInicial1"></strong></td>-->
+                <th><strong>Monto Inicial</strong></th>
+                <th><strong>Monto Final</strong></th>
             </tr>
-    
-            <tr>
+            </thead>
+
+            <!--<tr>
                 <td>1</td>
                 <td>monto Inicial 1</td>
                 <td>monto Final 1</td>
@@ -83,19 +106,13 @@
                 <td>4</td>
                 <td>monto Inicial 4</td>
                 <td>monto Final 4</td>
-            </tr>
-        
-            </table>
+            </tr>-->
+
+            <tbody id="tableBody"></tbody>
+
+        </table>
     </div>
-    
-    
-    <script>
-       
-      
-    
-    </script>
-
-
-</form>
+    </section>
 </body>
+
 </html>
